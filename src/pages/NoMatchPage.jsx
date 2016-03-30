@@ -1,14 +1,14 @@
 import React from 'react';
 import Styles from '../styles';
 
-const style = {
-  padding: Styles.padding.default,
-};
-
 export default class NoMatchPage extends React.Component {
+  static containerStyles = {
+    padding: Styles.padding.default,
+  };
+
   render() {
     return (
-      <div style={style}>No Match Page</div>
+      <div style={NoMatchPage.containerStyles}>No Match Page</div>
     );
   }
 }
