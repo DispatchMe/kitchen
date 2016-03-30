@@ -10,8 +10,8 @@ export default class ColorStyleDisplay extends React.Component {
   render() {
     const boxStyle = {
       flex: 'none',
-      width: Styles.padding.get(5),
-      height: Styles.padding.get(5),
+      width: Styles.padding.five,
+      height: Styles.padding.five,
       marginBottom: Styles.padding.default,
       marginRight: Styles.padding.default,
       backgroundColor: 'white',
