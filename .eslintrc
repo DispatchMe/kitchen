@@ -1,0 +1,15 @@
+{
+  "extends": "airbnb/base",
+  "env": {
+    "mocha": true
+  },
+  "globals": {
+    "expect": false,
+    "describe": false
+  },
+  "rules": {
+    "no-unused-expressions": 1,
+    "no-use-before-define": [2, "nofunc"],
+    "no-console": 0
+  }
+}
