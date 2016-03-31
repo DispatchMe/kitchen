@@ -5,29 +5,30 @@ import Console from './Console.jsx';
 import PropsEditor from './PropsEditor.jsx';
 import SplitView from './SplitView.jsx';
 
-const style = {
-  root: {
-    position: 'relative',
-    backgroundColor: Styles.color.grey97,
-  },
-  heading: {
-    marginBottom: Styles.padding.default,
-  },
-  componentTitle: {
+export default class Sandbox extends React.Component {
+  static propTypes = {
+    component: React.PropTypes.object,
+  };
+
+  static componentTitleStyles = {
     fontWeight: Styles.font.weight.light,
     color: '#969799',
-  },
-  variantTitle: {
+  };
+
+  static headingStyles = {
+    marginBottom: Styles.padding.default,
+  };
+
+  static rootStyles = {
+    position: 'relative',
+    backgroundColor: Styles.color.grey97,
+  };
+
+  static variantTitleStyles = {
     display: 'inline-block',
     verticalAlign: 'middle',
     fontSize: Styles.font.size.largest,
     color: Styles.font.color.primary,
-  },
-};
-
-export default class Sandbox extends React.Component {
-  static propTypes = {
-    component: React.PropTypes.object,
   };
 
   constructor(props) {
@@ -37,15 +38,13 @@ export default class Sandbox extends React.Component {
       messages: [],
       componentProps: {},
     };
-
-    this.onUpdateProps = this.onUpdateProps.bind(this);
   }
 
   componentWillReceiveProps() {
     this.setState({ messages: [] });
   }
 
-  onUpdateProps(event, propName, value) {
+  onUpdateProps = (event, propName, value) => {
     const updatedProps = Object.assign({}, this.state.componentProps, { [propName]: value });
 
     this.setState({ componentProps: updatedProps });
@@ -76,12 +75,12 @@ export default class Sandbox extends React.Component {
     );
 
     return (
-      <div className="sandbox" style={style.root}>
-        <div className="sandbox-heading" style={style.heading}>
-          <div className="sandbox-title" style={style.componentTitle}>{currentComponent.title || 'Component name'}</div>
+      <div className="sandbox" style={Sandbox.rootStyles}>
+        <div className="sandbox-heading" style={Sandbox.headingStyles}>
+          <div className="sandbox-title" style={Sandbox.componentTitleStyles}>{currentComponent.title || 'Component name'}</div>
           <div className="sandbox-variant">
-            <div style={style.variantTitle}>↳</div>
-            <div style={style.variantTitle}>{currentComponent.variant || 'Default'}</div>
+            <div style={Sandbox.variantTitleStyles}>↳</div>
+            <div style={Sandbox.variantTitleStyles}>{currentComponent.variant || 'Default'}</div>
           </div>
         </div>
         <currentComponent.component {...props} {...this.state.componentProps} />

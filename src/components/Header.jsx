@@ -2,8 +2,11 @@ import Radium from 'radium';
 import React from 'react';
 import { Link } from 'react-router';
 
-const styles = {
-  base: {
+const ButtonLink = Radium(Link); // eslint-disable-line new-cap
+
+export default class Header extends React.Component {
+
+  static baseStyles = {
     position: 'relative',
     height: '100%',
     width: '100%',
@@ -12,30 +15,28 @@ const styles = {
     borderBottom: '1px solid #e1e1e1',
     textAlign: 'center',
     lineHeight: '60px',
-  },
-};
+  };
 
-const brandingStyles = {
-  container: {
+  static brandingContainerStyles = {
     position: 'absolute',
     left: '1.5rem',
     top: '50%',
     marginTop: '-30px',
-  },
-  logo: {
-    height: '30px',
-    verticalAlign: 'middle',
-  },
-  text: {
+  };
+
+  static brandingTextStyles = {
     marginLeft: '0.78rem',
     color: '#CCCCCC',
     fontSize: '1.28rem',
     verticalAlign: 'middle',
-  },
-};
+  };
 
-const linkStyles = {
-  base: {
+  static linkActiveStyles = {
+    color: 'white',
+    backgroundColor: '#1895CC',
+  };
+
+  static linkBaseStyles = {
     display: 'inline-block',
     marginLeft: '0.375rem',
     marginRight: '0.375rem',
@@ -57,30 +58,23 @@ const linkStyles = {
       color: '#1895CC',
       backgroundColor: '#F5F5F5',
     },
-  },
-  inactive: {
+  };
+
+  static linkInactiveStyles = {
     color: '#969799',
     backgroundColor: 'white',
-  },
-  active: {
-    color: 'white',
-    backgroundColor: '#1895CC',
-  },
-};
+  };
 
-const ButtonLink = Radium(Link); // eslint-disable-line new-cap
-
-export default class Header extends React.Component {
   render() {
     return (
-      <div style={styles.base}>
-        <div className="branding" style={brandingStyles.container}>
-          <span style={brandingStyles.text}>kitchensink</span>
+      <div style={Header.baseStyles}>
+        <div className="branding" style={Header.brandingContainerStyles}>
+          <span style={Header.brandingTextStyles}>kitchensink</span>
         </div>
         <div>
-          <ButtonLink to={'/components'} style={Object.assign({}, linkStyles.base, linkStyles.inactive)} activeStyle={linkStyles.active}>Components</ButtonLink>
-          <ButtonLink to={'/icons'} style={Object.assign({}, linkStyles.base, linkStyles.inactive)} activeStyle={linkStyles.active}>Icons</ButtonLink>
-          <ButtonLink to={'/style_guide'} style={Object.assign({}, linkStyles.base, linkStyles.inactive)} activeStyle={linkStyles.active}>Style Guide</ButtonLink>
+          <ButtonLink to={'/components'} style={Object.assign({}, Header.linkBaseStyles, Header.linkInactiveStyles)} activeStyle={Header.linkActiveStyles}>Components</ButtonLink>
+          <ButtonLink to={'/icons'} style={Object.assign({}, Header.linkBaseStyles, Header.linkInactiveStyles)} activeStyle={Header.linkActiveStyles}>Icons</ButtonLink>
+          <ButtonLink to={'/style_guide'} style={Object.assign({}, Header.linkBaseStyles, Header.linkInactiveStyles)} activeStyle={Header.linkActiveStyles}>Style Guide</ButtonLink>
         </div>
       </div>
     );

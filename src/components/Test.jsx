@@ -1,27 +1,23 @@
 import React from 'react';
 
-const style = {
-  base: {
-    display: 'inline-block',
-  },
-  status: {
+export default class Test extends React.Component {
+  static propTypes = {
+    label: React.PropTypes.string,
+    status: React.PropTypes.string,
+  };
+
+  static statusStyles = {
     display: 'inline-block',
     height: '10px',
     width: '10px',
     marginLeft: '0.25rem',
     borderRadius: '50%',
-  },
-  label: {
+  };
+
+  static labelStyles = {
     display: 'inline-block',
     padding: '0.25rem',
     fontSize: '0.75rem',
-  },
-};
-
-export default class Test extends React.Component {
-  static propTypes = {
-    label: React.PropTypes.string,
-    status: React.PropTypes.string,
   };
 
   render() {
@@ -33,8 +29,8 @@ export default class Test extends React.Component {
 
     return (
       <div>
-        <span style={Object.assign({}, style.status, { backgroundColor: this.props.status })}></span>
-        <span style={style.label}>{label}</span>
+        <span style={Object.assign({}, Test.statusStyles, { backgroundColor: this.props.status })}></span>
+        <span style={Test.labelStyles}>{label}</span>
       </div>
     );
   }

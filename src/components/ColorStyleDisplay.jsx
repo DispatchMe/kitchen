@@ -7,50 +7,51 @@ export default class ColorStyleDisplay extends React.Component {
     name: React.PropTypes.string,
   };
 
+  static boxStyles = {
+    flex: 'none',
+    width: Styles.padding.five,
+    height: Styles.padding.five,
+    marginBottom: Styles.padding.default,
+    marginRight: Styles.padding.default,
+    backgroundColor: 'white',
+    border: Styles.border.default,
+    borderRadius: Styles.border.radius,
+  };
+
+  static colorFlanderBoxStyles = {
+    display: 'inline-block',
+    float: 'left',
+    height: '60%',
+    width: '100%',
+  };
+
+  static labelNameStyles = {
+    fontWeight: Styles.font.weight.boldSemi,
+    lineHeight: Styles.font.lineHeight.loose,
+  };
+
+  static labelValueStyles = {
+    color: '#969799',
+  };
+
+  static labelWrapperStyles = {
+    display: 'inline-block',
+    float: 'left',
+    height: '40%',
+    width: '100%',
+    padding: Styles.padding.quarter,
+    fontSize: Styles.font.size.small,
+  };
+
   render() {
-    const boxStyle = {
-      flex: 'none',
-      width: Styles.padding.five,
-      height: Styles.padding.five,
-      marginBottom: Styles.padding.default,
-      marginRight: Styles.padding.default,
-      backgroundColor: 'white',
-      border: Styles.border.default,
-      borderRadius: Styles.border.radius,
-    };
-
-    const colorFlanderBoxStyle = {
-      display: 'inline-block',
-      float: 'left',
-      height: '60%',
-      width: '100%',
-      backgroundColor: this.props.color,
-    };
-
-    const labelWrapperStyle = {
-      display: 'inline-block',
-      float: 'left',
-      height: '40%',
-      width: '100%',
-      padding: Styles.padding.quarter,
-      fontSize: Styles.font.size.small,
-    };
-
-    const labelNameStyle = {
-      fontWeight: Styles.font.weight.boldSemi,
-      lineHeight: Styles.font.lineHeight.loose,
-    };
-
-    const labelValueStyle = {
-      color: '#969799',
-    };
+    const colorFlanderBoxStyles = Object.assign({ backgroundColor: this.props.color }, ColorStyleDisplay.colorFlanderBoxStyles);
 
     return (
-      <div style={boxStyle}>
-        <div style={colorFlanderBoxStyle}></div>
-        <div style={labelWrapperStyle}>
-          <div style={labelNameStyle}>{this.props.name}</div>
-          <div style={labelValueStyle}>{this.props.color}</div>
+      <div style={ColorStyleDisplay.boxStyles}>
+        <div style={colorFlanderBoxStyles}></div>
+        <div style={ColorStyleDisplay.labelWrapperStyles}>
+          <div style={ColorStyleDisplay.labelNameStyles}>{this.props.name}</div>
+          <div style={ColorStyleDisplay.labelValueStyles}>{this.props.color}</div>
         </div>
       </div>
     );

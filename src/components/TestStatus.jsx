@@ -3,28 +3,14 @@ import 'mocha/mocha.js';
 import React from 'react';
 import Test from './Test.jsx';
 
-const style = {
-  base: {
-    display: 'inline-block',
-  },
-  status: {
-    display: 'inline-block',
-    height: '10px',
-    width: '10px',
-    marginLeft: '0.25rem',
-    borderRadius: '50%',
-  },
-  label: {
-    display: 'inline-block',
-    padding: '0.25rem',
-    fontSize: '0.75rem',
-  },
-};
-
 export default class TestStatus extends React.Component {
   static propTypes = {
     style: React.PropTypes.object,
     test: React.PropTypes.func,
+  };
+
+  static baseStyles = {
+    display: 'inline-block',
   };
 
   constructor(props) {
@@ -77,7 +63,7 @@ export default class TestStatus extends React.Component {
     const tests = _.isEmpty(this.state.tests) ? (<Test status={'gray'} label={'No Tests'} />) : this.renderTests();
 
     return (
-      <div style={Object.assign({}, style.base, this.props.style)}>
+      <div style={Object.assign({}, style.baseStyles, this.props.style)}>
         <div id="mocha" style={{ display: 'none' }}></div>
         {tests}
       </div>

@@ -8,12 +8,10 @@ export default class Console extends React.Component {
     style: React.PropTypes.object,
   };
 
-  static styles = {
-    label: {
-      fontSize: Styles.font.size.small,
-      fontWeight: Styles.font.weight.boldSemi,
-      color: Styles.color.grey37,
-    },
+  static labelStyles = {
+    fontSize: Styles.font.size.small,
+    fontWeight: Styles.font.weight.boldSemi,
+    color: Styles.color.grey37,
   };
 
   renderMessages() {
@@ -31,7 +29,7 @@ export default class Console extends React.Component {
   render() {
     return (
       <div>
-        <span style={Console.styles.label}>CONSOLE</span>
+        <span style={Console.labelStyles}>CONSOLE</span>
         <table>
           <tbody>
             {this.renderMessages()}

@@ -3,25 +3,6 @@ import React from 'react';
 
 import View from './View.jsx';
 
-const styles = {
-  horizontal: {
-    height: '100%',
-    float: 'left',
-  },
-  top: {
-    height: '50%',
-  },
-  bottom: {
-    height: '50%',
-  },
-  left: {
-    width: '50%',
-  },
-  right: {
-    width: '50%',
-  },
-};
-
 export default class SplitView extends React.Component {
   static propTypes = {
     orientation: React.PropTypes.string,
@@ -32,6 +13,27 @@ export default class SplitView extends React.Component {
     style: React.PropTypes.object,
     viewOne: React.PropTypes.any,
     viewTwo: React.PropTypes.any,
+  };
+
+  static horizontalStyles = {
+    height: '100%',
+    float: 'left',
+  };
+
+  static topStyles = {
+    height: '50%',
+  };
+
+  static bottomStyles = {
+    height: '50%',
+  };
+
+  static leftStyles = {
+    width: '50%',
+  };
+
+  static rightStyles = {
+    width: '50%',
   };
 
   constructor(props) {
@@ -73,11 +75,11 @@ export default class SplitView extends React.Component {
     const orientation = this.props.orientation || 'horizontal';
 
     if (orientation === 'horizontal') {
-      viewOneStyles = Object.assign({}, styles.horizontal, styles.left, this.overridesLeft);
-      viewTwoStyles = Object.assign({}, styles.horizontal, styles.right, this.overridesRight);
+      viewOneStyles = Object.assign({}, SplitView.horizontalStyles, SplitView.leftStyles, this.overridesLeft);
+      viewTwoStyles = Object.assign({}, SplitView.horizontalStyles, SplitView.rightStyles, this.overridesRight);
     } else if (orientation === 'vertical') {
-      viewOneStyles = Object.assign({}, styles.top, this.overridesTop);
-      viewTwoStyles = Object.assign({}, styles.bottom, this.overridesBottom);
+      viewOneStyles = Object.assign({}, SplitView.topStyles, this.overridesTop);
+      viewTwoStyles = Object.assign({}, SplitView.bottomStyles, this.overridesBottom);
     }
 
     return (

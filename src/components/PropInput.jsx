@@ -7,13 +7,7 @@ export default class PropInput extends React.Component {
     onChange: React.PropTypes.func,
   };
 
-  constructor(props) {
-    super(props);
-
-    this.onChange = this.onChange.bind(this);
-  }
-
-  onChange(event) {
+  onChange = (event) => {
     let value;
 
     if (this.props.type === React.PropTypes.bool) {

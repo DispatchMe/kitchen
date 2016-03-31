@@ -10,12 +10,10 @@ export default class PropsEditor extends React.Component {
     style: React.PropTypes.object,
   };
 
-  static styles = {
-    label: {
-      fontSize: Styles.font.size.small,
-      fontWeight: Styles.font.weight.boldSemi,
-      color: Styles.color.grey37,
-    },
+  static labelStyles = {
+    fontSize: Styles.font.size.small,
+    fontWeight: Styles.font.weight.boldSemi,
+    color: Styles.color.grey37,
   };
 
   renderPropInputs() {
@@ -35,7 +33,7 @@ export default class PropsEditor extends React.Component {
   render() {
     return (
       <div>
-        <span style={PropsEditor.styles.label}>PROPS</span>
+        <span style={PropsEditor.labelStyles}>PROPS</span>
         <table style={this.props.style}>
           <tbody>
             {this.renderPropInputs()}

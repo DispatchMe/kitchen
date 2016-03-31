@@ -3,8 +3,15 @@ import React from 'react';
 import { Link } from 'react-router';
 import Styles from '../styles';
 
-const itemStyles = {
-  base: {
+const ButtonLink = Radium(Link); // eslint-disable-line new-cap
+
+export default class ListItem extends React.Component {
+  static propTypes = {
+    link: React.PropTypes.string,
+    title: React.PropTypes.string,
+  };
+
+  static itemBaseStyles = {
     display: 'block',
     color: Styles.font.color.secondary,
     textDecoration: 'none',
@@ -15,24 +22,16 @@ const itemStyles = {
       color: Styles.color.grey37,
       transition: 'none',
     },
-  },
-  active: {
+  };
+
+  static itemActiveStyles = {
     color: Styles.color.grey37,
     fontWeight: Styles.font.weight.boldSemi,
-  },
-};
-
-const ButtonLink = Radium(Link); // eslint-disable-line new-cap
-
-export default class ListItem extends React.Component {
-  static propTypes = {
-    link: React.PropTypes.string,
-    title: React.PropTypes.string,
   };
 
   render() {
     return (
-      <ButtonLink to={this.props.link} style={itemStyles.base} activeStyle={itemStyles.active}>{this.props.title}</ButtonLink>
+      <ButtonLink to={this.props.link} style={ListItem.itemBaseStyles} activeStyle={ListItem.itemActiveStyles}>{this.props.title}</ButtonLink>
     );
   }
 }

@@ -3,7 +3,13 @@ import Styles from '../styles';
 import ButtonBarItem from './ButtonBarItem.jsx';
 
 export default class ButtonBar extends React.Component {
-  static style = {
+  static propTypes = {
+    children: React.PropTypes.any,
+    style: React.PropTypes.object,
+    items: React.PropTypes.array,
+  };
+
+  static baseStyles = {
     position: 'absolute',
     top: 0,
     bottom: 0,
@@ -11,12 +17,6 @@ export default class ButtonBar extends React.Component {
     height: '100%',
     width: '7rem',
     background: Styles.color.grey97,
-  };
-
-  static propTypes = {
-    children: React.PropTypes.any,
-    style: React.PropTypes.object,
-    items: React.PropTypes.array,
   };
 
   renderButtonBarItems() {
@@ -27,7 +27,7 @@ export default class ButtonBar extends React.Component {
 
   render() {
     return (
-      <div style={Object.assign({}, ButtonBar.style, this.props.style)}>
+      <div style={Object.assign({}, ButtonBar.baseStyles, this.props.style)}>
         {this.renderButtonBarItems()}
       </div>
     );
