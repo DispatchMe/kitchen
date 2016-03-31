@@ -7,7 +7,7 @@ export default class Message extends React.Component {
     title: React.PropTypes.string,
   };
 
-  static messageStyles = {
+  static baseStyles = {
     marginBottom: Styles.padding.half,
     fontSize: Styles.font.size.base,
     color: '#969799',
@@ -19,7 +19,7 @@ export default class Message extends React.Component {
 
   render() {
     return (
-      <span onClick={this.onClick} style={Message.messageStyles}>{this.props.title}</span>
+      <span onClick={this.onClick} style={Message.baseStyles}>{this.props.title}</span>
     );
   }
 }

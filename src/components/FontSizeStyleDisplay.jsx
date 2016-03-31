@@ -53,7 +53,7 @@ export default class FontSizeStyleDisplay extends React.Component {
     return (
       <div style={FontSizeStyleDisplay.boxStyles}>
         <div style={FontSizeStyleDisplay.textWrapperStyles}>
-          <div style={FontSizeStyleDisplay.textStyles}>Schedule a demo now to discover what Dispatch can do for your business.</div>
+          <div style={textStyles}>Schedule a demo now to discover what Dispatch can do for your business.</div>
         </div>
         <div style={FontSizeStyleDisplay.labelWrapperStyles}>
           <div style={FontSizeStyleDisplay.labelNameStyles}>{this.props.name}</div>
