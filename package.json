@@ -10,15 +10,12 @@
   "scripts": {
     "build:umd": "webpack src/ dist/kitchensink.umd.js --config webpack.generate.umd.config.js",
     "compile": "babel --modules amd -d lib/ src/ --ignore *-test.*.js",
-    "cover": "npm run lint && babel-node ./node_modules/istanbul/lib/cli cover node_modules/mocha/bin/_mocha test/**/*.spec.jsx",
     "lint": "eslint . --ext .jsx",
     "jscs": "jscs .",
     "lint:fix": "npm run lint -- --fix || true",
     "jscs:fix": "jscs . --fix || true",
     "prepublish": "npm run test && npm run compile && npm run build:umd",
-    "mocha": "node_modules/mocha/bin/_mocha --compilers jsx:babel-register test/**/*.spec.jsx test/**/**/*.spec.jsx --require test/setup.js",
-    "test": "npm run lint && npm run mocha",
-    "test:w": "npm run mocha -- --watch",
+    "test": "npm run lint",
     "example": "babel-node ./examples/server"
   },
   "dependencies": {
