@@ -63,7 +63,7 @@ export default class TestStatus extends React.Component {
     const tests = _.isEmpty(this.state.tests) ? (<Test status={'gray'} label={'No Tests'} />) : this.renderTests();
 
     return (
-      <div style={Object.assign({}, style.baseStyles, this.props.style)}>
+      <div style={Object.assign({}, TestStatus.baseStyles, this.props.style)}>
         <div id="mocha" style={{ display: 'none' }}></div>
         {tests}
       </div>
