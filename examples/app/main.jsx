@@ -10,4 +10,8 @@ if (module.hot) {
   module.hot.accept();
 }
 
-ReactDOM.render(React.createElement(Kitchensink, { components, icons, styles }), document.getElementById('root'));
+ReactDOM.render(React.createElement(Kitchensink, {
+  components,
+  icons,
+  styles,
+}), document.getElementById('root'));

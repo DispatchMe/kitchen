@@ -1,18 +1,16 @@
 import Radium from 'radium';
 import React from 'react';
 
-const styles = {
-  base: {
-    height: '100%',
-    overflow: 'auto',
-  },
-};
-
 class ScrollList extends React.Component {
   static propTypes = {
     children: React.PropTypes.element,
     items: React.PropTypes.arrayOf(React.PropTypes.object),
     style: React.PropTypes.object,
+  };
+
+  static baseStyles = {
+    height: '100%',
+    overflow: 'auto',
   };
 
   renderChildren() {
@@ -29,7 +27,7 @@ class ScrollList extends React.Component {
 
   render() {
     return (
-      <ul style={Object.assign({}, styles.base, this.props.style)}>
+      <ul style={Object.assign({}, ScrollList.baseStyles, this.props.style)}>
         {this.renderChildren()}
       </ul>
     );
