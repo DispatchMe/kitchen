@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from './Header.jsx';
-import SplitView from './SplitView.jsx';
+import Header from './Header';
+import SplitView from './SplitView';
 import styles from './App.css';
 import Styles from '../styles';
 
