@@ -1,8 +1,8 @@
 import React from 'react';
 
-import ColorStyleDisplay from '../components/ColorStyleDisplay.jsx';
-import FontSizeStyleDisplay from '../components/FontSizeStyleDisplay.jsx';
-import Heading from '../components/Heading.jsx';
+import ColorStyleDisplay from '../components/ColorStyleDisplay';
+import FontSizeStyleDisplay from '../components/FontSizeStyleDisplay';
+import Heading from '../components/Heading';
 
 export default class StyleGuidePage extends React.Component {
   static propTypes = {
