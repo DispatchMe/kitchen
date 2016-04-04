@@ -1,7 +1,7 @@
 import Radium from 'radium';
 import React from 'react';
 
-import View from './View.jsx';
+import View from './View';
 
 export default class SplitView extends React.Component {
   static propTypes = {

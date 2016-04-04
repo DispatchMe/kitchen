@@ -1,11 +1,11 @@
 import React from 'react';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
-import App from './App.jsx';
-import ComponentPage from '../pages/ComponentPage.jsx';
-import IconPage from '../pages/IconPage.jsx';
-import StyleGuidePage from '../pages/StyleGuidePage.jsx';
-import NoMatchPage from '../pages/NoMatchPage.jsx';
+import App from './App';
+import ComponentPage from '../pages/ComponentPage';
+import IconPage from '../pages/IconPage';
+import StyleGuidePage from '../pages/StyleGuidePage';
+import NoMatchPage from '../pages/NoMatchPage';
 
 
 export default class Kitchensink extends React.Component {

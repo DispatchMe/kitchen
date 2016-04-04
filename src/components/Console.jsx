@@ -1,6 +1,6 @@
 import React from 'react';
 import Styles from '../styles';
-import Message from './Message.jsx';
+import Message from './Message';
 
 export default class Console extends React.Component {
   static propTypes = {
