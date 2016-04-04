@@ -2,12 +2,12 @@ import _ from 'lodash';
 import marked from 'marked';
 import React from 'react';
 
-import SideBar from '../components/SideBar.jsx';
-import SplitView from '../components/SplitView.jsx';
-import Heading from '../components/Heading.jsx';
-import Paragraph from '../components/Paragraph.jsx';
-import Section from '../components/Section.jsx';
-import Icon from '../components/Icon.jsx';
+import SideBar from '../components/SideBar';
+import SplitView from '../components/SplitView';
+import Heading from '../components/Heading';
+import Paragraph from '../components/Paragraph';
+import Section from '../components/Section';
+import Icon from '../components/Icon';
 import Styles from '../styles';
 
 export default class IconPage extends React.Component {

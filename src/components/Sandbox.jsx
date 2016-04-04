@@ -1,9 +1,9 @@
 import _ from 'lodash';
 import React from 'react';
 import Styles from '../styles';
-import Console from './Console.jsx';
-import PropsEditor from './PropsEditor.jsx';
-import SplitView from './SplitView.jsx';
+import Console from './Console';
+import PropsEditor from './PropsEditor';
+import SplitView from './SplitView';
 
 export default class Sandbox extends React.Component {
   static propTypes = {

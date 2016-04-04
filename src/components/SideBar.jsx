@@ -1,9 +1,9 @@
 import React from 'react';
-import ListItem from './ListItem.jsx';
+import ListItem from './ListItem';
 import Styles from '../styles';
-import SearchField from './SearchField.jsx';
-import ScrollList from './ScrollList.jsx';
-import SplitView from './SplitView.jsx';
+import SearchField from './SearchField';
+import ScrollList from './ScrollList';
+import SplitView from './SplitView';
 
 export default class SideBar extends React.Component {
   static propTypes = {

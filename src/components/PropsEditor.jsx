@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import React from 'react';
 import Styles from '../styles';
-import PropInput from './PropInput.jsx';
+import PropInput from './PropInput';
 
 export default class PropsEditor extends React.Component {
   static propTypes = {

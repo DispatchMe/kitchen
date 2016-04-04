@@ -3,13 +3,13 @@ import marked from 'marked';
 import Radium from 'radium';
 import React from 'react';
 
-import SideBar from '../components/SideBar.jsx';
-import TestStatus from '../components/TestStatus.jsx';
-import Heading from '../components/Heading.jsx';
-import Paragraph from '../components/Paragraph.jsx';
-import Sandbox from '../components/Sandbox.jsx';
-import Section from '../components/Section.jsx';
-import SplitView from '../components/SplitView.jsx';
+import SideBar from '../components/SideBar';
+import TestStatus from '../components/TestStatus';
+import Heading from '../components/Heading';
+import Paragraph from '../components/Paragraph';
+import Sandbox from '../components/Sandbox';
+import Section from '../components/Section';
+import SplitView from '../components/SplitView';
 import Styles from '../styles';
 
 class ComponentPage extends React.Component {

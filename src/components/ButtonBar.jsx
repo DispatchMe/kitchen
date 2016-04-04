@@ -1,6 +1,6 @@
 import React from 'react';
 import Styles from '../styles';
-import ButtonBarItem from './ButtonBarItem.jsx';
+import ButtonBarItem from './ButtonBarItem';
 
 export default class ButtonBar extends React.Component {
   static propTypes = {

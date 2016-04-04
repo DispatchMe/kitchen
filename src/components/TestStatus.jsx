@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import 'mocha/mocha.js';
 import React from 'react';
-import Test from './Test.jsx';
+import Test from './Test';
 
 export default class TestStatus extends React.Component {
   static propTypes = {
