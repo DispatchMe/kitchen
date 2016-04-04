@@ -1,5 +1,5 @@
 {
-  "name": "kitchen",
+  "name": "kitchensink",
   "version": "1.0.0",
   "description": "Dispatch's awesome components and style guide",
   "main": "lib/index.js",
