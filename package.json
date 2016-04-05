@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build:umd": "webpack src/ dist/kitchensink.umd.js --config webpack.generate.umd.config.js",
-    "compile": "babel --modules amd -d lib/ src/ --ignore *-test.*.js",
+    "compile": "babel --modules amd -d lib/ src/ --copy-files --ignore *-test.*.js",
     "lint": "eslint . --ext .jsx",
     "jscs": "jscs .",
     "lint:fix": "npm run lint -- --fix || true",
