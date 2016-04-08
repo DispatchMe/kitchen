@@ -3,7 +3,7 @@ import React from 'react';
 
 class ScrollList extends React.Component {
   static propTypes = {
-    children: React.PropTypes.element,
+    children: React.PropTypes.any,
     items: React.PropTypes.arrayOf(React.PropTypes.object),
     style: React.PropTypes.object,
   };
