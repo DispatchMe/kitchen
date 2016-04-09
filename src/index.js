@@ -2,8 +2,6 @@
 import Kitchensink from './components/Kitchensink';
 
 // Component imports
-import ButtonBar from './components/ButtonBar';
-import ButtonBarItem from './components/ButtonBarItem';
 import Heading from './components/Heading';
 import ListItem from './components/ListItem';
 import Paragraph from './components/Paragraph';
@@ -15,8 +13,6 @@ import SplitView from './components/SplitView';
 import View from './components/View';
 
 export {
-  ButtonBar,
-  ButtonBarItem,
   Heading,
   ListItem,
   Paragraph,

@@ -11,20 +11,19 @@ var kitchensinkExternals = {
 
 module.exports = {
   externals: {
-    'kitchensink': kitchensinkExternals
+    'kitchensink': kitchensinkExternals,
   },
   module: {
     loaders: [
       { test: /\.js$/, loaders: ['babel-loader'], exclude: /node_modules/ },
       { test: /\.jsx$/, loaders: ['babel-loader'], exclude: /node_modules/ },
-      { test: /\.css$/, loaders: ['css-loader'], exclude: /node_modules/ },
-    ]
+    ],
   },
   output: {
     library: 'Kitchensink',
     libraryTarget: 'umd',
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
-  }
+    extensions: ['', '.js', '.jsx'],
+  },
 };
