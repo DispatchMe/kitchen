@@ -1,4 +1,4 @@
-# Kitchensink [![Build Status](https://travis-ci.com/DispatchMe/kitchen.svg?token=7DnfFXz6whApK5gDqzDM&branch=master)](https://travis-ci.com/DispatchMe/kitchen)
+# Kitchensink [![Build Status](https://travis-ci.org/DispatchMe/kitchen.svg?branch=master)](https://travis-ci.org/DispatchMe/kitchen)
 Kitchensink is a place for viewing and developing components in React.
 
 ## Example
