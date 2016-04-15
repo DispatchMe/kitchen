@@ -20,7 +20,7 @@ class ComponentPage extends React.Component {
 
   render() {
     const currentComponent = this.props.components[this.props.name] || {};
-    const components = _.map(this.props.components, (component, key) => ({ key, link: `/components/${key}`, title: component.title }));
+    let components = _.map(this.props.components, (component, key) => ({ key, link: `/components/${key}`, title: component.title }));
 
     // Alphabetize the component list
     components = _.sortBy(components, 'title');
