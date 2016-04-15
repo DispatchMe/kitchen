@@ -14,12 +14,12 @@ export default {
     loose: 1.4,
   },
   size: {
-    smallest: (10 / base) + 'rem',
-    smaller: (11 / base) + 'rem',
-    small: (12 / base) + 'rem',
+    smallest: `${10 / base}rem`,
+    smaller: `${11 / base}rem`,
+    small: `${12 / base}rem`,
     base: '1rem',
-    large: (16 / base) + 'rem',
-    larger: (18 / base) + 'rem',
+    large: `${16 / base}rem`,
+    larger: `${18 / base}rem`,
     largest: '1.5rem',
   },
   weight: {

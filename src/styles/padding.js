@@ -4,4 +4,4 @@ export default {
   quarter: '0.375rem',
   two: '3rem',
   five: '7.5rem',
-}
+};
