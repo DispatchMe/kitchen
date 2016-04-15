@@ -24,9 +24,7 @@
   },
   "dependencies": {
     "color": "^0.11.1",
-    "hex-rgb": "^1.0.0",
     "history": "2.0.0-rc2",
-    "marked": "^0.3.5",
     "react": "^0.14.7",
     "react-dom": "^0.14.8",
     "react-router": "2.0.0-rc5"
