@@ -1,15 +1,14 @@
 import React from 'react';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-
 import App from './App';
 import ComponentPage from '../pages/ComponentPage';
 import IconPage from '../pages/IconPage';
 import StyleGuidePage from '../pages/StyleGuidePage';
 import NoMatchPage from '../pages/NoMatchPage';
 
-
 export default class Kitchensink extends React.Component {
   static propTypes = {
+    browserHistory: React.PropTypes.object,
     components: React.PropTypes.object,
     icons: React.PropTypes.object,
     styles: React.PropTypes.object,
@@ -51,7 +50,7 @@ export default class Kitchensink extends React.Component {
 
   render() {
     return (
-      <Router history={browserHistory}>
+      <Router history={this.props.browserHistory || browserHistory}>
         <Route path="/" component={App}>
         <IndexRoute component={this.getComponents()} />
         <Route path="components" component={this.getComponents()}>
