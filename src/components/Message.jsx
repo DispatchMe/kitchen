@@ -3,7 +3,7 @@ import Styles from '../styles';
 
 export default class Message extends React.Component {
   static propTypes = {
-    details: React.PropTypes.object,
+    details: React.PropTypes.any,
     title: React.PropTypes.string,
   };
 
