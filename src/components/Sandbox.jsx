@@ -58,7 +58,7 @@ export default class Sandbox extends React.Component {
       events[eventName] = (event, value) => {
         const messages = this.state.messages;
 
-        messages.unshift({ title: `${eventName}: ${value}`, details: event });
+        messages.unshift({ title: `${eventName}: ${JSON.stringify(value)}`, details: event });
 
         this.setState({ messages });
       };
