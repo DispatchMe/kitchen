@@ -54,11 +54,36 @@ export default class Sandbox extends React.Component {
     const currentComponent = this.props.component || {};
     const events = {};
 
+    // Pass in a function for each event function that will allow us
+    // to display all the calls made to that function
     _.each(currentComponent.events, (eventName) => {
-      events[eventName] = (event, value) => {
+      events[eventName] = (...args) => {
         const messages = this.state.messages;
 
-        messages.unshift({ title: `${eventName}: ${JSON.stringify(value)}`, details: event });
+        let argsString = '';
+        _.each(args, arg => {
+          if (argsString.length > 0) {
+            argsString += ', ';
+          }
+          // Better display of React SyntheticEvent instances
+          if (arg && typeof arg === 'object' && arg.hasOwnProperty('nativeEvent')) {
+            argsString += arg.constructor.name;
+          } else {
+            argsString += JSON.stringify(arg);
+          }
+        });
+
+        let title;
+        if (argsString.length) {
+          title = `${eventName}(${argsString})`;
+        } else {
+          title = eventName;
+        }
+
+        messages.unshift({
+          title,
+          details: args,
+        });
 
         this.setState({ messages });
       };
@@ -66,7 +91,7 @@ export default class Sandbox extends React.Component {
 
     const props = Object.assign(currentComponent.props || {}, currentComponent.component.exampleProps || {}, events);
 
-    const console = (
+    const consoleNode = (
       <Console style={{ paddingTop: Styles.padding.default }} messages={this.state.messages} />
     );
 
@@ -84,7 +109,7 @@ export default class Sandbox extends React.Component {
           </div>
         </div>
         <currentComponent.component {...props} {...this.state.componentProps} />
-        <SplitView orientation="horizontal" leftWidth={'50%'} viewOne={console} viewTwo={propsEditor} style={{ paddingTop: Styles.padding.default }} />
+        <SplitView orientation="horizontal" leftWidth={'50%'} viewOne={consoleNode} viewTwo={propsEditor} style={{ paddingTop: Styles.padding.default }} />
       </div>
     );
   }

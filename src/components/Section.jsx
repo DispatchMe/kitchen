@@ -1,11 +1,12 @@
-import React from 'react';
-import Radium from 'radium';
+import React, { Component, PropTypes } from 'react';
+import radium from 'radium';
 import Styles from '../styles';
 
-class Section extends React.Component {
+class Section extends Component {
   static propTypes = {
-    children: React.PropTypes.any,
-    dark: React.PropTypes.bool,
+    children: PropTypes.any,
+    dark: PropTypes.bool,
+    style: PropTypes.object,
   };
 
   static baseStyles = {
@@ -20,9 +21,9 @@ class Section extends React.Component {
 
   render() {
     return (
-      <div style={this.props.dark && Section.darkStyles}>{this.props.children}</div>
+      <div style={[this.props.style, this.props.dark && Section.darkStyles]}>{this.props.children}</div>
     );
   }
 }
 
-export default Section = Radium(Section); // eslint-disable-line new-cap
+export default radium(Section);
