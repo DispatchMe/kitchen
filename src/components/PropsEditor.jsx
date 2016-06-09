@@ -16,6 +16,11 @@ export default class PropsEditor extends React.Component {
     color: Styles.color.grey37,
   };
 
+  static examplePropsLabelStyles = {
+    ...PropsEditor.labelStyles,
+    marginTop: Styles.padding.default,
+  };
+
   renderPropInputs() {
     return _.map(this.props.component.propTypes, (propType, propName) => (
       <tr key={propName}>
@@ -39,6 +44,8 @@ export default class PropsEditor extends React.Component {
             {this.renderPropInputs()}
           </tbody>
         </table>
+        <div style={PropsEditor.examplePropsLabelStyles}>EXAMPLE PROPS</div>
+        <pre>{JSON.stringify(this.props.component.exampleProps || {}, null, 2)}</pre>
       </div>
     );
   }
