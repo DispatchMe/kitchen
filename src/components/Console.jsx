@@ -14,6 +14,13 @@ export default class Console extends React.Component {
     color: Styles.color.grey37,
   };
 
+  static sublabelStyles = {
+    color: Styles.color.grey37,
+    fontSize: Styles.font.size.smallest,
+    fontStyle: 'italic',
+    marginBottom: '10px',
+  };
+
   renderMessages() {
     const messagesToShow = this.props.messages.slice(0, 5);
 
@@ -29,7 +36,8 @@ export default class Console extends React.Component {
   render() {
     return (
       <div>
-        <span style={Console.labelStyles}>CONSOLE</span>
+        <div style={Console.labelStyles}>CONSOLE</div>
+        <div style={Console.sublabelStyles}>Click a line to see all the arguments in the browser console</div>
         <table>
           <tbody>
             {this.renderMessages()}

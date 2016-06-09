@@ -41,7 +41,7 @@ class ComponentPage extends React.Component {
         <Section dark>
           <Sandbox component={currentComponent} />
         </Section>
-        <Section>
+        <Section style={{ paddingLeft: '1rem', paddingRight: '1rem' }}>
           <div dangerouslySetInnerHTML={{ __html: documentation }} />
         </Section>
       </div>
