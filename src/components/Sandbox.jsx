@@ -64,7 +64,11 @@ export default class Sandbox extends React.Component {
       };
     });
 
-    const props = Object.assign(currentComponent.props || {}, currentComponent.component.exampleProps || {}, events);
+    const props = Object.assign(
+      currentComponent.props || {},
+      events,
+      currentComponent.component.exampleProps || {}
+    );
 
     const console = (
       <Console style={{ paddingTop: Styles.padding.default }} messages={this.state.messages} />
