@@ -7,10 +7,11 @@ export default class PropInput extends React.Component {
     onChange: React.PropTypes.func,
   };
 
-  onChange = (event) => {
-    let value;
+  onChange = event => {
+    const { name, onChange, type } = this.props;
 
-    if (this.props.type === React.PropTypes.bool) {
+    let value;
+    if (type === React.PropTypes.bool || type === React.PropTypes.bool.isRequired) {
       value = event.target.checked;
     } else {
       value = event.target.value;
@@ -20,13 +21,21 @@ export default class PropInput extends React.Component {
       value = JSON.parse(value);
     } catch (e) { } // eslint-disable-line no-empty
 
-    this.props.onChange(event, this.props.name, value);
+    onChange(event, name, value);
   }
 
   render() {
-    let input;
+    const { name, type } = this.props;
 
-    if (this.props.type === React.PropTypes.bool) {
+    if (
+      type === React.PropTypes.func ||
+      type === React.PropTypes.func.isRequired ||
+      name === 'children') {
+      return null;
+    }
+
+    let input;
+    if (type === React.PropTypes.bool || type === React.PropTypes.bool.isRequired) {
       input = (<input type="checkbox" onChange={this.onChange} />);
     } else {
       input = (<input onChange={this.onChange} />);
