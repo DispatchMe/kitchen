@@ -7,33 +7,32 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   devtool: 'eval-source-map',
   entry: [
-
     'webpack-hot-middleware/client?reload=true',
-    path.join(__dirname, 'app/main.jsx')
+    path.join(__dirname, 'app/main.jsx'),
   ],
   externals: {
     'cheerio': 'window',
+    'react/addons': true,
     'react/lib/ExecutionEnvironment': true,
-    'react/lib/ReactContext': true
+    'react/lib/ReactContext': true,
   },
   output: {
     path: path.join(__dirname, '/dist/'),
     filename: '[name].js',
-    publicPath: '/'
+    publicPath: '/',
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'app/index.html',
+      template: path.join(__dirname, '/app/index.html'),
       inject: 'body',
-      filename: 'index.html'
+      filename: 'index.html',
     }),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('development')
-
-    })
+      'process.env.NODE_ENV': JSON.stringify('development'),
+    }),
   ],
   resolve: {
     alias: {
@@ -69,6 +68,12 @@ module.exports = {
     }, {
       test: /\.css$/,
       loader: 'style!css?modules&localIdentName=[name]---[local]---[hash:base64:5]'
-    }]
-  }
+    }, {
+      test: /\.md$/,
+      loader: 'raw',
+    }],
+    noParse: [
+      /node_modules\/mocha\//,
+    ],
+  },
 };
