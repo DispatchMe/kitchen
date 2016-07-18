@@ -1,20 +1,23 @@
-import React from 'react';
+import radium from 'radium';
+import React, { Component, PropTypes } from 'react';
 
-export default class ExIcon extends React.Component {
+class ExIcon extends Component {
   static propTypes = {
-    alt: React.PropTypes.string,
-    classes: React.PropTypes.string,
-    name: React.PropTypes.string,
-    style: React.PropTypes.object,
-    variant: React.PropTypes.string,
+    alt: PropTypes.string,
+    className: PropTypes.string,
+    name: PropTypes.string,
+    style: PropTypes.object,
   };
 
   render() {
+    const { alt, className, style } = this.props;
+
     return (
-      <svg alt={this.props.alt} width={8} height={8} viewBox="0 0 8 8">
+      <svg alt={alt} className={className} style={style} width="8" height="8" viewBox="0 0 8 8">
         <path d="M7.706982,6.2922547 C7.9596949,6.5449676 8.0583905,6.9133046 7.9658912,7.2585168 C7.8733919,7.603729 7.6037505,7.8733704 7.2585383,7.9658697 C6.9133261,8.058369 6.5449891,7.9596734 6.2922762,7.7069605 L4.00001073,5.4124846 L1.70774523,7.7047501 C1.5208857,7.8937441 1.26616526,8.0001012 1.00039233,8.0001012 C0.73461941,8.0001012 0.47989897,7.8937441 0.29303943,7.7047501 C0.10541159,7.5171623 0,7.2627147 0,6.9973972 C0,6.7320797 0.10541159,6.477632 0.29303943,6.2900443 L2.5875154,3.99998924 L0.29414467,1.70772375 C0.04143182,1.4550109 -0.05726378,1.08667389 0.03523554,0.741461721 C0.12773486,0.396249541 0.39737627,0.126608141 0.74258844,0.0341088209 C1.08780062,-0.0583905091 1.45613762,0.0403051009 1.70885047,0.293017951 L4.00001073,2.58749392 L6.2922762,0.296333671 C6.5449891,0.0436208109 6.9133261,-0.0550747891 7.2585383,0.0374245309 C7.6037504,0.129923861 7.8733918,0.399565261 7.9658912,0.744777441 C8.0583905,1.08998961 7.9596949,1.45832662 7.706982,1.71103947 L5.4125061,3.99998924 L7.7047715,6.2922547 L7.706982,6.2922547 L7.706982,6.2922547 Z" id="ex" fill="currentColor"></path>
       </svg>
     );
   }
 }
 
+export default radium(ExIcon);

@@ -1,19 +1,19 @@
-import React from 'react';
-import Radium, { StyleRoot } from 'radium';
+import radium from 'radium';
+import React, { Component, PropTypes } from 'react';
 
-class View extends React.Component {
+class View extends Component {
   static propTypes = {
-    children: React.PropTypes.any,
-    style: React.PropTypes.object,
+    children: PropTypes.any,
+    style: PropTypes.object,
   };
 
   render() {
+    const { children, style } = this.props;
+
     return (
-      <StyleRoot>
-        <div style={this.props.style}>{this.props.children}</div>
-      </StyleRoot>
+      <div style={style}>{children}</div>
     );
   }
 }
 
-export default Radium(View); // eslint-disable-line new-cap
+export default radium(View);
