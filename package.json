@@ -1,6 +1,6 @@
 {
   "name": "kitchensink",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Dispatch's awesome components and style guide",
   "main": "lib/index.js",
   "repository": {
