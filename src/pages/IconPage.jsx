@@ -9,6 +9,7 @@ const styles = {
     display: 'flex',
     flexFlow: 'row wrap',
     alignItems: 'flex-start',
+    justifyContent: 'center',
     overflow: 'auto',
     marginRight: 'auto',
     marginLeft: 'auto',
