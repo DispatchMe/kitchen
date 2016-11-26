@@ -1,7 +1,7 @@
 import React from 'react';
 import Radium from 'radium';
 
-export default class Icon extends React.Component {
+class Icon extends React.Component {
   static propTypes = {
     name: React.PropTypes.string,
     onClick: React.PropTypes.func,

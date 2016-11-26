@@ -1,10 +1,47 @@
 import _ from 'lodash';
 import React from 'react';
 
-import Heading from '../components/Heading';
-import Paragraph from '../components/Paragraph';
 import Icon from '../components/Icon';
 import Styles from '../styles';
+
+const styles = {
+  container: {
+    display: 'flex',
+    flexFlow: 'row wrap',
+    alignItems: 'flex-start',
+    overflow: 'auto',
+    marginRight: 'auto',
+    marginLeft: 'auto',
+    width: '100%',
+    maxWidth: 1160,
+  },
+  iconWrapper: {
+    display: 'flex',
+    flexFlow: 'column nowrap',
+    alignItems: 'center',
+    marginTop: 16,
+    marginRight: 16,
+    marginBottom: 16,
+    marginLeft: 16,
+    height: 84 + 24,
+    width: 84,
+  },
+  icon: {
+    marginTop: 'auto',
+    marginBottom: 'auto',
+    height: 48,
+    width: 48,
+  },
+  iconTitle: {
+    fontSize: 11,
+    color: '#757575',
+    fontWeight: 400,
+    textAlign: 'center',
+    marginTop: 0,
+    marginBottom: 0,
+    height: 26,
+  },
+};
 
 export default class IconPage extends React.Component {
   static propTypes = {
@@ -19,14 +56,11 @@ export default class IconPage extends React.Component {
       return iconDom.push(
         <div
           key={key}
-          style={{ display: 'flex', flexFlow: 'column nowrap', alignItems: 'center' }}
+          style={styles.iconWrapper}
         >
-          <div style={{ display: 'flex', flexFlow: 'column nowrap' }}>
-            <Heading>{icon.title}</Heading>
-            <Paragraph>{icon.description}</Paragraph>
-          </div>
+          <Icon name={icon.name} icon={icon.icon} style={styles.icon} />
 
-          <Icon name={icon.name} icon={icon.icon} style={{ width: Styles.padding.two, height: Styles.padding.two }} />
+          <h1 style={styles.iconTitle}>{icon.title}</h1>
         </div>
       );
     });
@@ -44,7 +78,7 @@ export default class IconPage extends React.Component {
     }
 
     return (
-      <div style={{ display: 'flex', flexFlow: 'row wrap', alignItems: 'flex-start', flex: '1 1 100%' }}>
+      <div style={styles.container}>
         {this.renderIcons(icons)}
       </div>
     );
