@@ -9,7 +9,6 @@ import Heading from '../components/Heading';
 import Paragraph from '../components/Paragraph';
 import Sandbox from '../components/Sandbox';
 import Section from '../components/Section';
-import SplitView from '../components/SplitView';
 import Styles from '../styles';
 
 class ComponentPage extends React.Component {
@@ -27,35 +26,30 @@ class ComponentPage extends React.Component {
 
     const documentation = currentComponent.documentation ? marked(currentComponent.documentation) : '<h1>No Documentation</h1>';
 
-    const viewOne = (
-      <SideBar items={components} />
-    );
-
-    const viewTwo = !_.isEmpty(currentComponent) ? (
-      <div style={{ height: '100%', overflow: 'auto' }}>
-        <Section>
-          <Heading>{currentComponent.title}</Heading>
-          <Paragraph>{currentComponent.description}</Paragraph>
-          <TestStatus test={currentComponent.test} />
-        </Section>
-        <Section dark>
-          <Sandbox component={currentComponent} />
-        </Section>
-        <Section style={{ paddingLeft: '1rem', paddingRight: '1rem' }}>
-          <div dangerouslySetInnerHTML={{ __html: documentation }} />
-        </Section>
-      </div>
-    ) : (
-      <div style={{ padding: Styles.padding.default }}>No Component Selected</div>
-    );
-
     return (
-      <SplitView
-        orientation="horizontal"
-        leftWidth={Styles.layout.sidebar.width}
-        viewOne={viewOne}
-        viewTwo={viewTwo}
-      />
+      <div style={{ display: 'flex', flexFlow: 'row nowrap', flex: '1 1 100%' }}>
+        <SideBar items={components} />
+
+        {!_.isEmpty(currentComponent) ? (
+          <div style={{ display: 'flex', flexFlow: 'column nowrap', flex: '1 1 auto' }}>
+            <Section>
+              <Heading>{currentComponent.title}</Heading>
+              <Paragraph>{currentComponent.description}</Paragraph>
+              <TestStatus test={currentComponent.test} />
+            </Section>
+            <div style={{ overflow: 'auto' }}>
+              <Section dark>
+                <Sandbox component={currentComponent} />
+              </Section>
+              <Section style={{ paddingLeft: '1rem', paddingRight: '1rem' }}>
+                <div dangerouslySetInnerHTML={{ __html: documentation }} />
+              </Section>
+            </div>
+          </div>
+        ) : (
+          <div style={{ padding: Styles.padding.default }}>No Component Selected</div>
+        )}
+      </div>
     );
   }
 }

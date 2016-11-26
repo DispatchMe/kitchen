@@ -4,6 +4,8 @@ import Styles from '../styles';
 import SearchField from './SearchField';
 import ScrollList from './ScrollList';
 import SplitView from './SplitView';
+import layout from '../styles/layout';
+
 
 export default class SideBar extends React.Component {
   static propTypes = {
@@ -11,8 +13,10 @@ export default class SideBar extends React.Component {
   };
 
   static baseStyles = {
-    height: '100%',
+    display: 'flex',
+    flexFlow: 'column nowrap',
     borderRight: Styles.border.default,
+    width: layout.sidebar.width,
   };
 
   constructor(props) {
@@ -25,21 +29,7 @@ export default class SideBar extends React.Component {
 
   updateSearchText = (event, value) => {
     this.setState({ searchText: value });
-  }
-
-  viewOne() {
-    return (
-      <SearchField style={{ fontSize: '1rem' }} onChange={this.updateSearchText} placeholder={'Search'} />
-    );
-  }
-
-  viewTwo(items) {
-    return (
-      <ScrollList items={items}>
-        <ListItem />
-      </ScrollList>
-    );
-  }
+  };
 
   render() {
     const items = [];
@@ -54,7 +44,11 @@ export default class SideBar extends React.Component {
 
     return (
       <div style={SideBar.baseStyles}>
-        <SplitView orientation={'vertical'} topHeight={'60px'} viewOne={this.viewOne()} viewTwo={this.viewTwo(items)} />
+        <SearchField style={{ fontSize: '1rem' }} onChange={this.updateSearchText} placeholder={'Search'} />
+
+        <ScrollList items={items}>
+          <ListItem />
+        </ScrollList>
       </div>
     );
   }

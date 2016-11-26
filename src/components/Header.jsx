@@ -1,6 +1,7 @@
 import Radium from 'radium';
 import React from 'react';
 import { Link } from 'react-router';
+import layout from '../styles/layout';
 
 const ButtonLink = Radium(Link); // eslint-disable-line new-cap
 
@@ -8,7 +9,7 @@ export default class Header extends React.Component {
 
   static baseStyles = {
     position: 'relative',
-    height: '100%',
+    height: layout.header.height,
     width: '100%',
     paddingLeft: '1.5rem',
     paddingRight: '1.5rem',

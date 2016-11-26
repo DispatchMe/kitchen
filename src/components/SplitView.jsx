@@ -83,7 +83,7 @@ export default class SplitView extends React.Component {
     }
 
     return (
-      <View style={Object.assign({}, { overflow: 'hidden', height: '100%' }, this.props.style)}>
+      <View style={Object.assign({}, { overflow: 'hidden' }, this.props.style)}>
         <View style={viewOneStyles}>{this.props.viewOne}</View>
         <View style={viewTwoStyles}>{this.props.viewTwo}</View>
       </View>

@@ -1,7 +1,6 @@
 import { Style } from 'radium';
 import React from 'react';
 import Header from './Header';
-import SplitView from './SplitView';
 import Styles from '../styles';
 
 export default class App extends React.Component {
@@ -41,6 +40,7 @@ export default class App extends React.Component {
       listStyle: 'none',
     },
     'html, body, body > div': {
+      overflow: 'hidden',
       height: '100%',
     },
 
@@ -82,8 +82,9 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <SplitView orientation="vertical" topHeight={Styles.layout.header.height} viewOne={<Header />} viewTwo={this.props.children} />
+      <div style={{ display: 'flex', flexFlow: 'column nowrap', height: '100vh' }}>
+        <Header />
+        {this.props.children}
         <Style rules={App.styles} />
       </div>
     );

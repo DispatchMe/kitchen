@@ -1,12 +1,8 @@
 import _ from 'lodash';
-import marked from 'marked';
 import React from 'react';
 
-import SideBar from '../components/SideBar';
-import SplitView from '../components/SplitView';
 import Heading from '../components/Heading';
 import Paragraph from '../components/Paragraph';
-import Section from '../components/Section';
 import Icon from '../components/Icon';
 import Styles from '../styles';
 
@@ -16,42 +12,41 @@ export default class IconPage extends React.Component {
     icons: React.PropTypes.object,
   };
 
-  renderIconVariants() {
-    const currentIcon = this.props.icons[this.props.name] || {};
+  renderIcons(icons) {
+    const iconDom = [];
 
-    return _.map(currentIcon.variants, (variant, index) => (<Icon key={index} name={currentIcon.name} icon={currentIcon.icon} variant={variant} style={{ width: Styles.padding.two, height: Styles.padding.two }} />));
+    _.each(icons, (icon, key) => {
+      return iconDom.push(
+        <div
+          key={key}
+          style={{ display: 'flex', flexFlow: 'column nowrap', alignItems: 'center' }}
+        >
+          <div style={{ display: 'flex', flexFlow: 'column nowrap' }}>
+            <Heading>{icon.title}</Heading>
+            <Paragraph>{icon.description}</Paragraph>
+          </div>
+
+          <Icon name={icon.name} icon={icon.icon} style={{ width: Styles.padding.two, height: Styles.padding.two }} />
+        </div>
+      );
+    });
+
+    return iconDom;
   }
 
   render() {
-    const currentIcon = this.props.icons[this.props.name] || {};
+    const { icons } = this.props;
 
-    const icons = _.map(this.props.icons, (icon, key) => ({ key, link: `/icons/${key}`, title: icon.title }));
-    const documentation = currentIcon.documentation ? marked(currentIcon.documentation) : '<h1>No Documentation</h1>';
-
-    const viewOne = (
-      <SideBar items={icons} />
-    );
-
-    const viewTwo = !_.isEmpty(currentIcon) ? (
-      <div style={{ height: '100%' }}>
-        <Section>
-          <Heading>{currentIcon.title}</Heading>
-          <Paragraph>{currentIcon.description}</Paragraph>
-        </Section>
-        <Section dark>
-          <Icon name={currentIcon.name} icon={currentIcon.icon} style={{ width: Styles.padding.two, height: Styles.padding.two }} />
-          {this.renderIconVariants()}
-        </Section>
-        <Section>
-          <div dangerouslySetInnerHTML={{ __html: documentation }} />
-        </Section>
-      </div>
-    ) : (
-      <div style={{ padding: Styles.padding.default }}>No Icon Selected</div>
-    );
+    if (_.isEmpty(icons)) {
+      return (
+        <div style={{ padding: Styles.padding.default }}>No Icons :(</div>
+      );
+    }
 
     return (
-      <SplitView orientation="horizontal" leftWidth={Styles.layout.sidebar.width} viewOne={viewOne} viewTwo={viewTwo} />
+      <div style={{ display: 'flex', flexFlow: 'row wrap', alignItems: 'flex-start', flex: '1 1 100%' }}>
+        {this.renderIcons(icons)}
+      </div>
     );
   }
 }
