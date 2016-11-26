@@ -3,7 +3,6 @@ import ListItem from './ListItem';
 import Styles from '../styles';
 import SearchField from './SearchField';
 import ScrollList from './ScrollList';
-import SplitView from './SplitView';
 import layout from '../styles/layout';
 
 
@@ -15,6 +14,7 @@ export default class SideBar extends React.Component {
   static baseStyles = {
     display: 'flex',
     flexFlow: 'column nowrap',
+    flexShrink: 0,
     borderRight: Styles.border.default,
     width: layout.sidebar.width,
   };

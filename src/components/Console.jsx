@@ -35,7 +35,7 @@ export default class Console extends React.Component {
 
   render() {
     return (
-      <div>
+      <div style={{ width: '50%', overflow: 'auto' }}>
         <div style={Console.labelStyles}>CONSOLE</div>
         <div style={Console.sublabelStyles}>Click a line to see all the arguments in the browser console</div>
         <table>

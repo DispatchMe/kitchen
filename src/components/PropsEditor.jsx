@@ -37,7 +37,7 @@ export default class PropsEditor extends React.Component {
 
   render() {
     return (
-      <div>
+      <div style={{ width: '50%', overflow: 'auto' }}>
         <span style={PropsEditor.labelStyles}>PROPS</span>
         <table style={this.props.style}>
           <tbody>
