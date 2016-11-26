@@ -52,18 +52,16 @@ export default class IconPage extends React.Component {
   renderIcons(icons) {
     const iconDom = [];
 
-    _.each(icons, (icon, key) => {
-      return iconDom.push(
-        <div
-          key={key}
-          style={styles.iconWrapper}
-        >
-          <Icon name={icon.name} icon={icon.icon} style={styles.icon} />
+    _.each(icons, (icon, key) => iconDom.push(
+      <div
+        key={key}
+        style={styles.iconWrapper}
+      >
+        <Icon name={icon.name} icon={icon.icon} style={styles.icon} />
 
-          <h1 style={styles.iconTitle}>{icon.title}</h1>
-        </div>
-      );
-    });
+        <h1 style={styles.iconTitle}>{icon.title}</h1>
+      </div>
+    ));
 
     return iconDom;
   }
