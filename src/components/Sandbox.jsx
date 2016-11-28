@@ -3,7 +3,6 @@ import React from 'react';
 import Styles from '../styles';
 import Console from './Console';
 import PropsEditor from './PropsEditor';
-import SplitView from './SplitView';
 
 export default class Sandbox extends React.Component {
   static propTypes = {
@@ -95,14 +94,6 @@ export default class Sandbox extends React.Component {
       currentComponent.component.exampleProps || {}
     );
 
-    const consoleNode = (
-      <Console style={{ paddingTop: Styles.padding.default }} messages={this.state.messages} />
-    );
-
-    const propsEditor = (
-      <PropsEditor style={{ paddingTop: Styles.padding.default }} component={currentComponent.component} onUpdateProps={this.onUpdateProps} />
-    );
-
     return (
       <div className="sandbox" style={Sandbox.rootStyles}>
         <div className="sandbox-heading" style={Sandbox.headingStyles}>
@@ -113,7 +104,12 @@ export default class Sandbox extends React.Component {
           </div>
         </div>
         <currentComponent.component {...props} {...this.state.componentProps} />
-        <SplitView orientation="horizontal" leftWidth={'50%'} viewOne={consoleNode} viewTwo={propsEditor} style={{ paddingTop: Styles.padding.default }} />
+
+        <div style={{ display: 'flex', flexFlow: 'row nowrap', paddingTop: Styles.padding.default }}>
+          <Console style={{ paddingTop: Styles.padding.default }} messages={this.state.messages} />
+
+          <PropsEditor style={{ paddingTop: Styles.padding.default }} component={currentComponent.component} onUpdateProps={this.onUpdateProps} />
+        </div>
       </div>
     );
   }

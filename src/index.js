@@ -9,7 +9,6 @@ import ScrollList from './components/ScrollList';
 import SearchField from './components/SearchField';
 import Section from './components/Section';
 import Separator from './components/Separator';
-import SplitView from './components/SplitView';
 import View from './components/View';
 
 export {
@@ -20,7 +19,6 @@ export {
   SearchField,
   Section,
   Separator,
-  SplitView,
   View,
 };
 
