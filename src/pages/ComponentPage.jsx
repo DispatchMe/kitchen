@@ -31,7 +31,7 @@ class ComponentPage extends React.Component {
         <SideBar items={components} />
 
         {!_.isEmpty(currentComponent) ? (
-          <div style={{ display: 'flex', flexFlow: 'column nowrap', flex: '1 1 auto' }}>
+          <div style={{ display: 'flex', flexFlow: 'column nowrap', flex: '1 1 auto', overflow: 'hidden' }}>
             <Section>
               <Heading>{currentComponent.title}</Heading>
               <Paragraph>{currentComponent.description}</Paragraph>
