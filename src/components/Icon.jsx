@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import Radium from 'radium';
 
-class Icon extends React.Component {
+class Icon extends Component {
   static propTypes = {
-    name: React.PropTypes.string,
-    onClick: React.PropTypes.func,
-    style: React.PropTypes.object,
-    icon: React.PropTypes.func,
+    icon: PropTypes.func,
+    name: PropTypes.string,
+    onClick: PropTypes.func,
+    style: PropTypes.object,
+    variant: PropTypes.string,
   };
 
   render() {
