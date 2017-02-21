@@ -43,10 +43,8 @@ export default class Sandbox extends React.Component {
     this.setState({ messages: [] });
   }
 
-  onUpdateProps = (event, propName, value) => {
-    const updatedProps = Object.assign({}, this.state.componentProps, { [propName]: value });
-
-    this.setState({ componentProps: updatedProps });
+  onUpdateProps = (componentProps) => {
+    this.setState({ componentProps });
   }
 
   render() {
@@ -88,11 +86,11 @@ export default class Sandbox extends React.Component {
       };
     });
 
-    const props = Object.assign(
-      currentComponent.props || {},
-      events,
-      currentComponent.component.exampleProps || {}
-    );
+    const props = {
+      ...(currentComponent.props || {}),
+      ...events,
+      ...this.state.componentProps,
+    };
 
     return (
       <div className="sandbox" style={Sandbox.rootStyles}>
@@ -103,7 +101,7 @@ export default class Sandbox extends React.Component {
             <div style={Sandbox.variantTitleStyles}>{currentComponent.variant || 'Default'}</div>
           </div>
         </div>
-        <currentComponent.component {...props} {...this.state.componentProps} />
+        <currentComponent.component {...props} />
 
         <div style={{ display: 'flex', flexFlow: 'row nowrap', paddingTop: Styles.padding.default }}>
           <Console style={{ paddingTop: Styles.padding.default }} messages={this.state.messages} />
