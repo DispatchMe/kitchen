@@ -1,6 +1,6 @@
 import Radium from 'radium';
 import React from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import layout from '../styles/layout';
 
 const ButtonLink = Radium(Link); // eslint-disable-line new-cap
