@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import App from './App';
 import ComponentPage from '../pages/ComponentPage';
@@ -8,11 +9,11 @@ import NoMatchPage from '../pages/NoMatchPage';
 
 export default class Kitchensink extends React.Component {
   static propTypes = {
-    browserHistory: React.PropTypes.object,
-    components: React.PropTypes.object,
-    icons: React.PropTypes.object,
-    styles: React.PropTypes.object,
-    params: React.PropTypes.object,
+    browserHistory: PropTypes.object,
+    components: PropTypes.object,
+    icons: PropTypes.object,
+    styles: PropTypes.object,
+    params: PropTypes.object,
   };
 
   getComponents() {

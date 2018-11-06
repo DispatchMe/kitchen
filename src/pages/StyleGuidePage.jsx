@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import ColorStyleDisplay from '../components/ColorStyleDisplay';
 import FontSizeStyleDisplay from '../components/FontSizeStyleDisplay';
@@ -6,7 +7,7 @@ import Heading from '../components/Heading';
 
 export default class StyleGuidePage extends React.Component {
   static propTypes = {
-    styles: React.PropTypes.object,
+    styles: PropTypes.object,
   };
 
   static containerStyles = {

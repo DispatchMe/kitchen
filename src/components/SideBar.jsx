@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ListItem from './ListItem';
 import Styles from '../styles';
 import SearchField from './SearchField';
@@ -8,7 +9,7 @@ import layout from '../styles/layout';
 
 export default class SideBar extends React.Component {
   static propTypes = {
-    items: React.PropTypes.arrayOf(React.PropTypes.object),
+    items: PropTypes.arrayOf(PropTypes.object),
   };
 
   static baseStyles = {

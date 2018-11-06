@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Styles from '../styles';
 import Message from './Message';
 
 export default class Console extends React.Component {
   static propTypes = {
-    messages: React.PropTypes.arrayOf(React.PropTypes.object),
-    style: React.PropTypes.object,
+    messages: PropTypes.arrayOf(PropTypes.object),
+    style: PropTypes.object,
   };
 
   static labelStyles = {

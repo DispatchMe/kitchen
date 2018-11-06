@@ -1,10 +1,11 @@
 import Radium from 'radium';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Separator extends React.Component {
   static propTypes = {
-    orientation: React.PropTypes.string,
-    style: React.PropTypes.object,
+    orientation: PropTypes.string,
+    style: PropTypes.object,
   };
 
   static baseStyles = {

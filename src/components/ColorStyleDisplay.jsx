@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Styles from '../styles';
 
 export default class ColorStyleDisplay extends React.Component {
   static propTypes = {
-    color: React.PropTypes.string,
-    name: React.PropTypes.string,
+    color: PropTypes.string,
+    name: PropTypes.string,
   };
 
   static boxStyles = {

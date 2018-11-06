@@ -1,12 +1,13 @@
 import _ from 'lodash';
 import React from 'react';
+import PropTypes from 'prop-types';
 import Styles from '../styles';
 import Console from './Console';
 import PropsEditor from './PropsEditor';
 
 export default class Sandbox extends React.Component {
   static propTypes = {
-    component: React.PropTypes.object,
+    component: PropTypes.object,
   };
 
   static componentTitleStyles = {

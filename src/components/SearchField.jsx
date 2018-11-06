@@ -1,14 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Styles from '../styles';
 
 export default class SearchField extends React.Component {
   static propTypes = {
-    disabled: React.PropTypes.bool,
-    onBlur: React.PropTypes.func,
-    onChange: React.PropTypes.func,
-    onInput: React.PropTypes.func,
-    placeholder: React.PropTypes.string,
-    value: React.PropTypes.string,
+    disabled: PropTypes.bool,
+    onBlur: PropTypes.func,
+    onChange: PropTypes.func,
+    onInput: PropTypes.func,
+    placeholder: PropTypes.string,
+    value: PropTypes.string,
   };
 
   static inputBaseStyles = {

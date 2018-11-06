@@ -2,12 +2,13 @@ import _ from 'lodash';
 import 'mocha/mocha.js';
 import radium from 'radium';
 import React from 'react';
+import PropTypes from 'prop-types';
 import Test from './Test';
 
 export default class TestStatus extends React.Component {
   static propTypes = {
-    style: React.PropTypes.object,
-    test: React.PropTypes.func,
+    style: PropTypes.object,
+    test: PropTypes.func,
   };
 
   static baseStyles = {
