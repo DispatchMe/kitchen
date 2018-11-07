@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Styles from '../styles';
 
 export default class FontSizeStyleDisplay extends React.Component {
   static propTypes = {
-    fontSize: React.PropTypes.string,
-    name: React.PropTypes.string,
+    fontSize: PropTypes.string,
+    name: PropTypes.string,
   };
 
   static boxStyles = {

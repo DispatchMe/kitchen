@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Styles from '../styles';
 
 export default class Paragraph extends React.Component {
   static propTypes = {
-    children: React.PropTypes.any,
-    style: React.PropTypes.object,
+    children: PropTypes.any,
+    style: PropTypes.object,
   };
 
   static baseStyles = {

@@ -1,5 +1,6 @@
 import radium from 'radium';
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class View extends Component {
   static propTypes = {

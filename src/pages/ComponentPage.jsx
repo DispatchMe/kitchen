@@ -2,6 +2,7 @@ import _ from 'lodash';
 import marked from 'marked';
 import Radium from 'radium';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import SideBar from '../components/SideBar';
 import TestStatus from '../components/TestStatus';
@@ -13,8 +14,8 @@ import Styles from '../styles';
 
 class ComponentPage extends React.Component {
   static propTypes = {
-    name: React.PropTypes.string,
-    components: React.PropTypes.object,
+    name: PropTypes.string,
+    components: PropTypes.object,
   };
 
   render() {

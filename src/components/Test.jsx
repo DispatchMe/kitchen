@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class Test extends React.Component {
   static propTypes = {
-    label: React.PropTypes.string,
-    status: React.PropTypes.string,
+    label: PropTypes.string,
+    status: PropTypes.string,
   };
 
   static statusStyles = {

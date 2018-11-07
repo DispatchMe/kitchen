@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Icon from '../components/Icon';
 import Styles from '../styles';
@@ -46,8 +47,8 @@ const styles = {
 
 export default class IconPage extends React.Component {
   static propTypes = {
-    name: React.PropTypes.string,
-    icons: React.PropTypes.object,
+    name: PropTypes.string,
+    icons: PropTypes.object,
   };
 
   renderIcons(icons) {

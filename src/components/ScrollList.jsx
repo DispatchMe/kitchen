@@ -1,11 +1,12 @@
 import Radium from 'radium';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class ScrollList extends React.Component {
   static propTypes = {
-    children: React.PropTypes.any,
-    items: React.PropTypes.arrayOf(React.PropTypes.object),
-    style: React.PropTypes.object,
+    children: PropTypes.any,
+    items: PropTypes.arrayOf(PropTypes.object),
+    style: PropTypes.object,
   };
 
   static baseStyles = {

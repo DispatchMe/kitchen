@@ -1,11 +1,12 @@
 import { Style } from 'radium';
 import React from 'react';
+import PropTypes from 'prop-types';
 import Header from './Header';
 import Styles from '../styles';
 
 export default class App extends React.Component {
   static propTypes = {
-    children: React.PropTypes.object,
+    children: PropTypes.object,
   };
 
   static styles = {

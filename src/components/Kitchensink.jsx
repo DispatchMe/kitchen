@@ -1,5 +1,6 @@
 import React from 'react';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import PropTypes from 'prop-types';
+import { HashRouter, Route, Switch, browserHistory, Redirect } from 'react-router-dom';
 import App from './App';
 import ComponentPage from '../pages/ComponentPage';
 import IconPage from '../pages/IconPage';
@@ -8,11 +9,11 @@ import NoMatchPage from '../pages/NoMatchPage';
 
 export default class Kitchensink extends React.Component {
   static propTypes = {
-    browserHistory: React.PropTypes.object,
-    components: React.PropTypes.object,
-    icons: React.PropTypes.object,
-    styles: React.PropTypes.object,
-    params: React.PropTypes.object,
+    browserHistory: PropTypes.object,
+    components: PropTypes.object,
+    icons: PropTypes.object,
+    styles: PropTypes.object,
+    match: PropTypes.object,
   };
 
   getComponents() {
@@ -20,7 +21,7 @@ export default class Kitchensink extends React.Component {
     return class extends React.Component {
       render() {
         return (
-          <ComponentPage name={this.props.params.name} components={components} />
+          <ComponentPage name={this.props.match && this.props.match.params && this.props.match.params.name} components={components} />
         );
       }
     };
@@ -31,7 +32,7 @@ export default class Kitchensink extends React.Component {
     return class extends React.Component {
       render() {
         return (
-          <IconPage name={this.props.params.name} icons={icons} />
+          <IconPage name={this.props.match && this.props.match.params && this.props.match.params.name} icons={icons} />
         );
       }
     };
@@ -50,19 +51,17 @@ export default class Kitchensink extends React.Component {
 
   render() {
     return (
-      <Router history={this.props.browserHistory || browserHistory}>
-        <Route path="/" component={App}>
-        <IndexRoute component={this.getComponents()} />
-        <Route path="components" component={this.getComponents()}>
-          <Route path=":name" component={this.getComponents()} />
-        </Route>
-        <Route path="icons" component={this.getIcons()}>
-          <Route path=":name" component={this.getIcons()} />
-        </Route>
-        <Route path="style_guide" component={this.getStyleGuide()} />
-        <Route path="*" component={NoMatchPage} />
-        </Route>
-      </Router>
+      <HashRouter history={this.props.browserHistory || browserHistory}>
+        <App>
+          <Switch>
+            <Redirect exact from="/" to="/components" />
+            <Route path={['/components/:name', '/components']} component={this.getComponents()} />
+            <Route path={['/icons/:name', '/icons']} component={this.getIcons()} />
+            <Route path="style_guide" component={this.getStyleGuide()} />
+            <Route component={NoMatchPage} />
+          </Switch>
+        </App>
+      </HashRouter>
     );
   }
 }

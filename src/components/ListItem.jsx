@@ -1,14 +1,15 @@
 import Radium from 'radium';
 import React from 'react';
-import { Link } from 'react-router';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import Styles from '../styles';
 
 const ButtonLink = Radium(Link); // eslint-disable-line new-cap
 
 export default class ListItem extends React.Component {
   static propTypes = {
-    link: React.PropTypes.string,
-    title: React.PropTypes.string,
+    link: PropTypes.string,
+    title: PropTypes.string,
   };
 
   static itemBaseStyles = {
